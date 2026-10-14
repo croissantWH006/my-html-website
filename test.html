@@ -3,8 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Modern Corporate: navy fixed sidebar with icons, white content, teal accents.
-   Five tools share one data store, so a form submission shows up in the tracker, the drive, and the dashboard. */
+/* Modern Corporate: navy fixed sidebar with icons, white content, teal accents. */
 :root{
   --font-body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --bg:#F2F5F9;--surface:#FFFFFF;--surface-2:#E9EEF5;--row-hover:#F5F8FC;--ink:#0B1F3A;--muted:#4B5B73;
@@ -44,6 +43,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 
+/* ---------- login overlay ---------- */
+.login-overlay{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px;width:100%;max-width:400px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:20px}
+.login-brand{display:flex;align-items:center;gap:12px}
+.login-title{font-size:18px;font-weight:700;line-height:1.2}
+.login-sub{font-size:13px;color:var(--muted)}
+
 /* ---------- sidebar ---------- */
 .sidebar{position:fixed;top:0;bottom:0;left:0;width:248px;background:var(--side-bg);color:#C5D3E8;display:flex;flex-direction:column;gap:24px;padding:20px 14px;overflow-y:auto;z-index:20}
 .sidebar :focus-visible{outline-color:#7DE3D6}
@@ -61,11 +67,14 @@ button,input,select,textarea{font:inherit;color:inherit}
 .nav-item[aria-current="page"]::before{content:"";position:absolute;left:-14px;top:8px;bottom:8px;width:4px;border-radius:0 4px 4px 0;background:#2DD4BF}
 .nav-item[aria-current="page"] .ico{color:#2DD4BF}
 .badge{margin-left:auto;min-width:22px;height:22px;display:inline-grid;place-items:center;padding:0 7px;border-radius:999px;background:#F5C451;color:#3B2A00;font-size:12.5px;font-weight:700}
-.side-foot{margin-top:auto;border-top:1px solid var(--side-line);padding:16px 8px 0;display:flex;gap:12px;align-items:center}
+.side-foot{margin-top:auto;border-top:1px solid var(--side-line);padding:16px 8px 0;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.side-foot-info{display:flex;gap:12px;align-items:center;min-width:0}
 .avatar{width:36px;height:36px;border-radius:50%;background:#1B3358;color:#FFFFFF;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
 .side-foot-text{display:flex;flex-direction:column;line-height:1.3;min-width:0}
-.side-foot-text strong{color:#FFFFFF;font-size:13.5px}
+.side-foot-text strong{color:#FFFFFF;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .side-foot-text span{font-size:12.5px;color:#8FA3C2}
+.btn-logout{background:none;border:0;color:#8FA3C2;cursor:pointer;padding:4px;border-radius:6px;display:grid;place-items:center}
+.btn-logout:hover{color:#FFFFFF;background:#12294C}
 
 /* ---------- main ---------- */
 .main{margin-left:248px;min-width:0;min-height:100vh}
@@ -74,7 +83,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .page-title{font-size:22px;line-height:1.25;font-weight:700}
 .page-title:focus{outline:none}
 .page-sub{color:var(--muted);font-size:14px;max-width:72ch}
-.top-actions{display:flex;gap:10px;align-items:center}
+.top-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.datetime-display{font-weight:600;font-size:13.5px;color:var(--ink);background:var(--surface-2);padding:6px 12px;border-radius:8px;border:1px solid var(--line)}
 .content{width:100%;max-width:1240px;margin-inline:auto;padding:24px 32px 56px}
 .panel{display:flex;flex-direction:column;gap:20px}
 .split{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:20px;align-items:start}
@@ -91,7 +101,7 @@ h3{font-size:15px;font-weight:700}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field.full{grid-column:1/-1}
 label,.label{font-weight:600;font-size:14px}
-input,select,textarea{width:100%;min-height:44px;padding:9px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink)}
+input,select,textarea{width:100%;min-height:44px;padding:99px 12px;padding-top:9px;padding-bottom:9px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink)}
 input:focus,select:focus,textarea:focus{border-color:var(--accent)}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 textarea{resize:vertical;min-height:72px}
@@ -120,12 +130,8 @@ textarea{resize:vertical;min-height:72px}
 .pill-neutral{background:var(--surface-2);color:var(--muted)}
 
 /* ---------- dashboard ---------- */
-.flow{border-left:4px solid var(--accent)}
-.flow-head{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.flow-head>div{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 320px}
-.flow-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.flow-steps li{display:flex;align-items:center;gap:10px;background:var(--surface-2);border-radius:10px;padding:12px}
-.flow-steps .dot{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.greeting-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow);border-left:4px solid var(--accent)}
+.greeting-card h2{font-size:24px;color:var(--ink)}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
 .stats-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:var(--shadow)}
@@ -245,6 +251,9 @@ dl.kv dd{overflow-wrap:anywhere}
 .restricted p{color:var(--ink)}
 .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .tier{border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.backup-cats{display:flex;flex-direction:column;gap:16px}
+.backup-cat{border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--surface)}
+.backup-cat-title{font-size:15px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px}
 
 .toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;font-weight:600;max-width:calc(100vw - 32px);text-align:center;z-index:30}
 
@@ -270,13 +279,11 @@ dl.kv dd{overflow-wrap:anywhere}
   .topbar{padding:14px 16px}
   .content{padding:16px 16px 40px}
   .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
-  .flow-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:620px){
   .fields{grid-template-columns:minmax(0,1fr)}
   .tiers{grid-template-columns:minmax(0,1fr)}
   .history li{grid-template-columns:minmax(0,1fr);gap:2px}
-  .flow-steps{grid-template-columns:minmax(0,1fr)}
   .card{padding:16px}
   .page-title{font-size:20px}
   .bar-row{grid-template-columns:minmax(96px,120px) minmax(0,1fr) 28px}
@@ -303,7 +310,34 @@ dl.kv dd{overflow-wrap:anywhere}
   <symbol id="i-building" viewBox="0 0 24 24"><path d="M4.5 21V7.8L12 3.5l7.5 4.3V21"/><path d="M9.5 21v-5.5h5V21M9.5 10.5h.01M14.5 10.5h.01"/></symbol>
   <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11.5A8 8 0 1 0 17.7 17"/><path d="M20 5v6.5h-6.5"/></symbol>
   <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-7.5 4 15 3-7.5h4"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
 </svg>
+
+<!-- 1 & 2. Login Page Overlay -->
+<div class="login-overlay" id="login-overlay">
+  <form class="login-card" id="login-form" novalidate>
+    <div class="login-brand">
+      <span class="logo"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-building"/></svg></span>
+      <div>
+        <div class="login-title">Pangasinan-Luzon</div>
+        <div class="login-sub">Online Trading &amp; Services</div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="login-username">Username</label>
+      <input id="login-username" autocomplete="username" required placeholder="Enter username">
+    </div>
+    <div class="field">
+      <label for="login-password">Password</label>
+      <input id="login-password" type="password" autocomplete="current-password" required placeholder="Enter password">
+    </div>
+    <p class="err" id="login-err" aria-live="polite"></p>
+    <button class="btn btn-primary" type="submit">Log in</button>
+    <div style="text-align:center; margin-top: -4px;">
+      <button type="button" class="refbtn" id="login-create-account">Create Account / New Sign In</button>
+    </div>
+  </form>
+</div>
 
 <aside class="sidebar">
   <div class="brand">
@@ -324,8 +358,11 @@ dl.kv dd{overflow-wrap:anywhere}
     </ul>
   </nav>
   <div class="side-foot">
-    <span class="avatar" aria-hidden="true">AM</span>
-    <div class="side-foot-text"><strong>Administrative Manager</strong><span>Group 4 · SME / E-Commerce</span></div>
+    <div class="side-foot-info">
+      <span class="avatar" id="user-avatar" aria-hidden="true">AM</span>
+      <div class="side-foot-text"><strong id="user-display-name">Administrative Manager</strong><span>Group 4 · SME / E-Commerce</span></div>
+    </div>
+    <button type="button" class="btn-logout" id="logout-btn" title="Log out"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-logout"/></svg></button>
   </div>
 </aside>
 
@@ -336,6 +373,8 @@ dl.kv dd{overflow-wrap:anywhere}
       <p class="page-sub" id="page-sub"></p>
     </div>
     <div class="top-actions">
+      <!-- 3. Live PHT Date & Time Display -->
+      <div class="datetime-display" id="live-datetime">-- --, ---- | --:-- --</div>
       <span class="pill pill-info">Sample data</span>
       <button class="btn btn-ghost btn-small" id="reset" type="button"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg><span id="reset-label">Reset demo</span></button>
     </div>
@@ -344,20 +383,10 @@ dl.kv dd{overflow-wrap:anywhere}
   <main class="content">
     <!-- Dashboard -->
     <section class="panel" id="panel-dashboard" aria-label="Dashboard">
-      <section class="card flow" aria-labelledby="flow-title">
-        <div class="flow-head">
-          <div>
-            <h2 id="flow-title">Try the connected flow</h2>
-            <p class="muted">All five tools share the same data, so one customer request shows up everywhere.</p>
-          </div>
-          <button class="btn btn-primary" type="button" data-goto="form">Start with the customer form</button>
-        </div>
-        <ol class="flow-steps">
-          <li><span class="dot">1</span><span>Submit the customer form</span></li>
-          <li><span class="dot">2</span><span>Validate it in the tracker</span></li>
-          <li><span class="dot">3</span><span>Find its record in the drive</span></li>
-          <li><span class="dot">4</span><span>Watch these counts change</span></li>
-        </ol>
+      <!-- 4. Personalized Greeting Section -->
+      <section class="greeting-card">
+        <h2 id="db-greeting">Hello, Administrative Manager</h2>
+        <p class="muted">Welcome back to your dashboard. Here is your operational overview for today.</p>
       </section>
 
       <div class="section-head">
@@ -413,14 +442,14 @@ dl.kv dd{overflow-wrap:anywhere}
       <section class="card" aria-labelledby="ai-title">
         <div class="card-head">
           <h2 id="ai-title">Action items</h2>
-          <p class="muted">Anything that slipped in the Friday review becomes an action item with an owner and a deadline. The first four come from the September 30 meeting.</p>
+          <p class="muted">Sorted dynamically by urgency. Checking an item removes it from active tasks and records it under Recent Activity.</p>
         </div>
         <ul id="ai-list"></ul>
         <hr class="divider">
         <form id="ai" class="fields" novalidate>
           <div class="field full"><label for="ai-text">New action item</label><input id="ai-text" autocomplete="off"><p class="err" id="ai-err" aria-live="polite"></p></div>
           <div class="field"><label for="ai-owner">Owner</label><select id="ai-owner"></select></div>
-          <div class="field"><label for="ai-due">Deadline</label><input id="ai-due" placeholder="Friday"></div>
+          <div class="field"><label for="ai-due">Deadline</label><input id="ai-due" placeholder="e.g. Urgent, Immediate, Friday"></div>
           <div class="actions"><button class="btn btn-secondary" type="submit">Add action item</button></div>
         </form>
       </section>
@@ -462,8 +491,9 @@ dl.kv dd{overflow-wrap:anywhere}
               <label for="cf-order">Order number (if any)</label>
               <input id="cf-order" placeholder="#EC1045">
             </div>
+            <!-- 5A. Address Field updated label -->
             <div class="field full">
-              <label for="cf-address">Delivery address</label>
+              <label for="cf-address">Address</label>
               <input id="cf-address" autocomplete="street-address" aria-describedby="cf-address-err">
               <p class="err" id="cf-address-err" aria-live="polite"></p>
             </div>
@@ -587,6 +617,14 @@ dl.kv dd{overflow-wrap:anywhere}
             </div>
             <div class="actions"><button class="btn btn-primary" type="submit" id="dr-save">Save to this folder</button></div>
           </form>
+          <!-- 7. Drive Backup Records Section -->
+          <div class="card">
+            <div class="card-head">
+              <h2>Backup Records</h2>
+              <p class="muted">Dedicated backup records organized by category (Sample Demo Data).</p>
+            </div>
+            <div class="backup-cats" id="dr-backups-container"></div>
+          </div>
           <div class="card">
             <div class="card-head">
               <h2>Three-tier backup</h2>
@@ -635,7 +673,7 @@ const ROLES={
  'Operations':['04','06'],'IT Support':['01'],'Management':['01','02','03','04','05','06','07','08']
 };
 const DOC_TYPES=[['Staff_Meeting_Minutes','Staff meeting minutes'],['Staff_Meeting_Agenda','Staff meeting agenda'],['Customer_ServiceRequest','Customer service request'],['Customer_Complaint','Customer complaint'],['Supplier_Quotation','Supplier quotation'],['Monthly_Sales_Report','Monthly sales report'],['Office_Notice','Office notice']];
-const OWNERS=['Administrative Staff','Customer Service','Finance','HR','IT Support','Manager','Operations','Order/Inventory Staff','Secretary'];
+const OWNERS=['Administrative Manager','Administrative Staff','Customer Service','Finance','HR','IT Support','Manager','Operations','Order/Inventory Staff','Secretary'];
 const METRICS=[
  {key:'accuracy',label:'Order accuracy',unit:'%',def:'Orders shipped correctly',higher:true,icon:'check'},
  {key:'response',label:'Response time',unit:'hrs',def:'Time to first reply',higher:false,icon:'clock'},
@@ -644,6 +682,34 @@ const METRICS=[
 ];
 const DAYN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// 7B. Sample Backup Records Data
+const BACKUP_DATA = {
+  Yearly: [
+    { name: 'Annual_Report_2026.pdf', date: '2026-01-10', type: 'PDF' },
+    { name: 'Annual_Report_2025.pdf', date: '2025-01-12', type: 'PDF' },
+    { name: 'Annual_Report_2024.pdf', date: '2024-01-15', type: 'PDF' },
+    { name: 'Annual_Report_2023.pdf', date: '2023-01-14', type: 'PDF' }
+  ],
+  Monthly: [
+    { name: 'September_2026_Backup.zip', date: '2026-09-30', type: 'ZIP Archive' },
+    { name: 'August_2026_Backup.zip', date: '2026-08-31', type: 'ZIP Archive' },
+    { name: 'July_2026_Backup.zip', date: '2026-07-31', type: 'ZIP Archive' },
+    { name: 'June_2026_Backup.zip', date: '2026-06-30', type: 'ZIP Archive' }
+  ],
+  Weekly: [
+    { name: 'Week_2_October_2026.zip', date: '2026-10-11', type: 'ZIP Archive' },
+    { name: 'Week_1_October_2026.zip', date: '2026-10-04', type: 'ZIP Archive' },
+    { name: 'Week_4_September_2026.zip', date: '2026-09-27', type: 'ZIP Archive' },
+    { name: 'Week_3_September_2026.zip', date: '2026-09-20', type: 'ZIP Archive' }
+  ],
+  Daily: [
+    { name: 'October_14_2026_Backup.zip', date: '2026-10-14', type: 'ZIP Archive' },
+    { name: 'October_13_2026_Backup.zip', date: '2026-10-13', type: 'ZIP Archive' },
+    { name: 'October_12_2026_Backup.zip', date: '2026-10-12', type: 'ZIP Archive' },
+    { name: 'October_11_2026_Backup.zip', date: '2026-10-11', type: 'ZIP Archive' }
+  ]
+};
 
 /* ---------- helpers ---------- */
 const $=(s,r)=>(r||document).querySelector(s);
@@ -666,6 +732,71 @@ async function copyText(text,el){
   try{await navigator.clipboard.writeText(text);toast('Copied to the clipboard.');}
   catch(e){if(el){const r=document.createRange();r.selectNodeContents(el);const s=window.getSelection();s.removeAllRanges();s.addRange(r);}toast('Select the text and copy it.');}
 }
+
+/* ---------- 3. Real-time PHT Date & Time Clock ---------- */
+function updateClock(){
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const pht = new Date(utc + (3600000 * 8)); // UTC+8
+  
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const m = monthNames[pht.getMonth()];
+  const d = pht.getDate();
+  const y = pht.getFullYear();
+  
+  let h = pht.getHours();
+  const ap = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  const min = pad(pht.getMinutes());
+  
+  const formatted = `${m} ${d}, ${y} | ${h}:${min} ${ap}`;
+  const el = $('#live-datetime');
+  if(el) el.textContent = formatted;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+/* ---------- authentication & state ---------- */
+let currentUser = null;
+
+function handleLogin(username, password) {
+  if (username === 'admin' && password === 'admin') {
+    currentUser = { username: 'admin', name: 'Administrative Manager', initials: 'AM' };
+    $('#login-overlay').hidden = true;
+    $('#login-err').textContent = '';
+    $('#login-form').reset();
+    updateUserDisplay();
+    renderDash();
+    toast('Logged in successfully as Administrative Manager.');
+    return true;
+  } else {
+    $('#login-err').textContent = 'Invalid username or password. (Use demo: admin / admin)';
+    return false;
+  }
+}
+
+function updateUserDisplay() {
+  if (currentUser) {
+    $('#user-display-name').textContent = currentUser.name;
+    $('#user-avatar').textContent = currentUser.initials;
+    $('#db-greeting').textContent = 'Hello, ' + currentUser.name;
+  }
+}
+
+$('#login-form').addEventListener('submit', e => {
+  e.preventDefault();
+  handleLogin($('#login-username').value.trim(), $('#login-password').value);
+});
+
+$('#login-create-account').addEventListener('click', () => {
+  toast('Demo mode: Please log in using the demo credentials (admin / admin).');
+});
+
+$('#logout-btn').addEventListener('click', () => {
+  currentUser = null;
+  $('#login-overlay').hidden = false;
+  toast('Logged out.');
+});
 
 /* ---------- data ---------- */
 const days=businessDays(5);
@@ -706,11 +837,12 @@ function seed(){
       {label:weekLabel(w1),accuracy:93,response:4.5,resolution:3,retrieval:4,sample:true}
     ],
     actions:[
+      {text:'Provide updates for delayed orders',owner:'Customer Service',due:'Immediate',done:false},
+      {text:'Record customer complaints and resolutions',owner:'Administrative Staff',due:'Urgent',done:false},
       {text:'Implement two-step order verification',owner:'Order/Inventory Staff',due:'Within 3 days',done:false},
-      {text:'Provide updates for delayed orders',owner:'Customer Service',due:'Immediately',done:false},
-      {text:'Record customer complaints and resolutions',owner:'Administrative Staff',due:'Immediately',done:false},
-      {text:'Review the new procedures',owner:'Manager',due:'After 1 week',done:false}
-    ]
+      {text:'Review the new procedures',owner:'Administrative Manager',due:'After 1 week',done:false}
+    ],
+    recentActivities:[]
   };
 }
 let S=seed();
@@ -787,10 +919,12 @@ $('#cf-bad').addEventListener('click',()=>{setForm(FORM_DEFAULT);$('#cf-address'
 $('#cf-clear').addEventListener('click',()=>{['name','mobile','email','order','address','details'].forEach(k=>{$('#cf-'+k).value='';});clearErrors();$('#cf-name').focus();});
 
 function step(state,n,title,body){return '<li class="step '+state+'"><span class="dot">'+(state==='done'?'✓':n)+'</span><div class="step-body"><strong>'+title+'</strong>'+body+'</div></li>';}
+
+// 5B & 5C. Updated Form Status section with "Form Update" title & "Send"->"Done" button
 function renderFormStatus(){
   const el=$('#cf-status');const r=ui.lastRef&&byRef(ui.lastRef);
   if(!r){
-    el.innerHTML='<div class="card-head"><h2>What happens after you submit</h2><p class="muted">This replaces the paper form, manual encoding, and paper filing.</p></div><ol class="steps">'+
+    el.innerHTML='<div class="card-head"><h2>Form Update</h2><p class="muted">This section helps customers easily find updates regarding submitted forms.</p></div><ol class="steps">'+
       step('todo',1,'Customer submits the form','<p>Answers go straight into the tracker.</p>')+
       step('todo',2,'Staff validate the details','<p>Customer Service checks the information.</p>')+
       step('todo',3,'A digital record is stored','<p>Saved in the Customers folder of the drive.</p>')+
@@ -798,13 +932,15 @@ function renderFormStatus(){
     return;
   }
   const ok=r.status!=='Awaiting validation';
-  el.innerHTML='<div class="card-head"><h2>Request '+esc(r.ref)+'</h2><p class="muted">'+esc(r.customer)+' · '+esc(r.type)+'</p></div><ol class="steps">'+
+  const noticeSent = r.noticeSent || false;
+  
+  el.innerHTML='<div class="card-head"><h2>Form Update — '+esc(r.ref)+'</h2><p class="muted">'+esc(r.customer)+' · '+esc(r.type)+'</p></div><ol class="steps">'+
     step('done',1,'Form submitted','<p>Recorded in the tracker as '+esc(r.ref)+'.</p>')+
     (ok?step('done',2,'Staff validated the details','<p>Status is now '+esc(r.status)+'. Owner: '+esc(OWNER[r.status])+'.</p>')
        :step('now',2,'Waiting for staff validation','<p>Someone in Customer Service needs to check the details.</p><div class="actions"><button class="btn btn-primary btn-small" type="button" data-act="validate" data-ref="'+esc(r.ref)+'">Validate as staff</button><button class="btn btn-ghost btn-small" type="button" data-act="open-tracker" data-ref="'+esc(r.ref)+'">Open in tracker</button></div>'))+
     (ok?step('done',3,'Record stored','<p class="mono">'+esc(r.recordFile||'')+'</p><p>Saved in 05 Customers / Service Requests.</p><div class="actions"><button class="btn btn-ghost btn-small" type="button" data-act="open-drive">Open the drive</button></div>')
        :step('todo',3,'Record stored','<p>Saved to the drive once staff validate.</p>'))+
-    (ok?step('done',4,'Customer notice ready','<div class="notice" id="cf-notice">'+esc(noticeFor(r))+'</div><p>Preview only. This prototype does not send email.</p><div class="actions"><button class="btn btn-ghost btn-small" type="button" data-act="copy-notice" data-ref="'+esc(r.ref)+'">Copy notice</button></div>')
+    (ok?step('done',4,'Customer Notice Ready','<div class="notice" id="cf-notice">'+esc(noticeFor(r))+'</div><p>Notice generated for customer dispatch.</p><div class="actions"><button class="btn '+(noticeSent?'btn-secondary':'btn-primary')+' btn-small" type="button" data-act="send-notice" data-ref="'+esc(r.ref)+'" '+(noticeSent?'disabled':'')+'>'+(noticeSent?'Done':'Send')+'</button></div>')
        :step('todo',4,'Customer notice','<p>Prepared after validation.</p>'))+'</ol>';
 }
 $('#cf-status').addEventListener('click',e=>{
@@ -812,7 +948,14 @@ $('#cf-status').addEventListener('click',e=>{
   if(b.dataset.act==='validate')setStatus(b.dataset.ref,'Under review');
   if(b.dataset.act==='open-tracker'){ui.selRef=b.dataset.ref;renderTracker();renderDetail();switchTab('tracker',true);}
   if(b.dataset.act==='open-drive'){ui.role='Customer Service';ui.folder='05';ui.sub='Service Requests';$('#dr-role').value=ui.role;renderDrive();switchTab('drive',true);}
-  if(b.dataset.act==='copy-notice'){copyText(noticeFor(byRef(b.dataset.ref)),$('#cf-notice'));}
+  if(b.dataset.act==='send-notice'){
+    const r = byRef(b.dataset.ref);
+    if(r) {
+      r.noticeSent = true;
+      toast('Customer notice sent successfully.');
+      renderFormStatus();
+    }
+  }
 });
 
 /* ---------- 2. booking ---------- */
@@ -942,7 +1085,7 @@ $('#tr-detail').addEventListener('click',e=>{
   }
 });
 
-/* ---------- 4. drive ---------- */
+/* ---------- 4. drive & 7. Backup Records ---------- */
 const can=id=>ROLES[ui.role].includes(id);
 function curFolder(){return FOLDERS.find(f=>f.id===ui.folder);}
 function previewName(){
@@ -956,6 +1099,45 @@ function renderPreview(){
   const exists=S.files.some(f=>f.name.startsWith(p.base+'_'));
   $('#dr-hint').textContent=exists?'A file with this name already exists, so the next version is '+nextVersion(p.base)+'.':'Format: year-month, document type, subject, version.';
 }
+
+// 7. Render Backup Section inside Drive
+function renderBackupRecords() {
+  const container = $('#dr-backups-container');
+  if(!container) return;
+  
+  let html = '';
+  const categories = ['Yearly', 'Monthly', 'Weekly', 'Daily'];
+  
+  categories.forEach(cat => {
+    const records = BACKUP_DATA[cat] || [];
+    html += `<div class="backup-cat">
+      <div class="backup-cat-title">${cat} Backups</div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Backup Date</th>
+              <th>File Type</th>
+            </tr>
+          </thead>
+          <tbody>`;
+    records.forEach(rec => {
+      html += `<tr>
+        <td class="mono"><strong>${esc(rec.name)}</strong></td>
+        <td>${esc(rec.date)}</td>
+        <td><span class="pill pill-neutral">${esc(rec.type)}</span></td>
+      </tr>`;
+    });
+    html += `</tbody>
+        </table>
+      </div>
+    </div>`;
+  });
+  
+  container.innerHTML = html;
+}
+
 function renderDrive(){
   const f=curFolder();const ok=can(f.id);
   $('#dr-tree').innerHTML=FOLDERS.map(x=>{
@@ -974,6 +1156,8 @@ function renderDrive(){
   }
   $('#dr-save').disabled=!ok;
   $('#dr-tiers').innerHTML=[['t1','Company drive','Primary storage'],['t2','External storage','Backup 1'],['t3','Secure cloud','Backup 2']].map(t=>'<div class="tier"><strong>'+t[1]+'</strong><span class="muted">'+t[2]+'</span><span class="pill '+(S.backups[t[0]]?'pill-ok':'pill-neutral')+'">'+(S.backups[t[0]]?'Backed up '+fmtDT(S.backups[t[0]]):'Not run in this demo')+'</span><button type="button" class="btn btn-secondary btn-small" data-act="backup" data-tier="'+t[0]+'">Back up now</button></div>').join('');
+  
+  renderBackupRecords();
   renderPreview();
 }
 $('#dr-tree').addEventListener('click',e=>{
@@ -1002,7 +1186,6 @@ $('#dr-form').addEventListener('submit',e=>{
 });
 
 /* ---------- 5. dashboard ---------- */
-/* Sparkline: muted line, accent for the current period, 8px end dot with a surface ring. */
 function spark(vals){
   if(vals.length<2)return '';
   const w=120,h=40,p=7,min=Math.min(...vals),max=Math.max(...vals),span=max-min||1;
@@ -1018,7 +1201,18 @@ function delta(m,cur,prev){
   const better=m.higher?d>0:d<0;
   return {t:(d>0?'▲ ':'▼ ')+Math.abs(d)+' '+(m.unit==='%'?'pts':m.unit)+' '+(better?'better':'worse'),c:better?'pill-ok':'pill-warn'};
 }
+
+// Helper to calculate priority rank for action items sorting (6A)
+function getPriorityRank(dueStr) {
+  const d = (dueStr || '').toLowerCase();
+  if (d.includes('immediate')) return 1;
+  if (d.includes('urgent')) return 2;
+  return 3;
+}
+
 function renderDash(){
+  updateUserDisplay();
+
   const c=s=>S.requests.filter(r=>r.status===s).length;
   const open=S.requests.filter(r=>r.status!=='Resolved').length;
   const live=[
@@ -1039,14 +1233,29 @@ function renderDash(){
   const max=Math.max(1,...STATUSES.map(c));
   $('#db-status').innerHTML=STATUSES.map(s=>{const n=c(s);return '<li class="bar-row" title="'+esc(s)+': '+n+' of '+S.requests.length+' requests"><span class="bar-label">'+esc(s)+'</span><span class="bar-track"><span class="bar-fill" style="width:'+(n/max*100).toFixed(1)+'%"></span></span><span class="bar-val">'+n+'</span></li>';}).join('');
 
-  const acts=[];S.requests.forEach(r=>r.history.forEach(h=>acts.push({ref:r.ref,at:h.at,text:h.text})));
+  // Combined Recent Activity from requests and completed action items
+  const acts=[];
+  S.requests.forEach(r=>r.history.forEach(h=>acts.push({ref:r.ref,at:h.at,text:h.text})));
+  if (S.recentActivities) {
+    S.recentActivities.forEach(ra => acts.push(ra));
+  }
   acts.sort((a,b)=>b.at-a.at);
-  $('#db-activity').innerHTML=acts.slice(0,6).map(a=>'<li class="act"><span class="act-ico">'+ico('activity')+'</span><div class="act-body"><button type="button" class="refbtn" data-act="open-ref" data-ref="'+esc(a.ref)+'">'+esc(a.ref)+'</button><span>'+esc(a.text)+'</span><time>'+fmtDT(a.at)+'</time></div></li>').join('');
+  $('#db-activity').innerHTML=acts.slice(0,6).map(a=>'<li class="act"><span class="act-ico">'+ico('activity')+'</span><div class="act-body">'+(a.ref?'<button type="button" class="refbtn" data-act="open-ref" data-ref="'+esc(a.ref)+'">'+esc(a.ref)+'</button>':'')+'<span>'+esc(a.text)+'</span><time>'+fmtDT(a.at)+'</time></div></li>').join('');
 
   $('#db-weeks').innerHTML='<table class="data" style="min-width:380px"><thead><tr><th>Week</th>'+METRICS.map(m=>'<th class="num-cell">'+m.unit+'</th>').join('')+'</tr></thead><tbody>'+S.weeks.slice().reverse().map(w=>'<tr><td>'+esc(w.label)+(w.sample?' <span class="pill pill-neutral">Sample</span>':'')+'</td>'+METRICS.map(m=>'<td class="num-cell">'+w[m.key]+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
   $('#wk-title').textContent='Record '+lc(weekLabel(mondayOf(0)));
-  $('#ai-list').innerHTML=S.actions.map((a,i)=>'<li class="ai"><label><input type="checkbox" data-i="'+i+'"'+(a.done?' checked':'')+'><span class="'+(a.done?'done':'')+'">'+esc(a.text)+'</span></label><span class="muted">'+esc(a.owner)+' · '+esc(a.due||'No deadline')+'</span></li>').join('');
+
+  // 6A. Sort active action items by priority (Immediate & Urgent at the top)
+  const activeActions = S.actions.filter(a => !a.done);
+  activeActions.sort((a,b) => getPriorityRank(a.due) - getPriorityRank(b.due));
+
+  $('#ai-list').innerHTML = activeActions.length ? activeActions.map(a => {
+    const origIndex = S.actions.indexOf(a);
+    const isUrgent = getPriorityRank(a.due) < 3;
+    return '<li class="ai"><label><input type="checkbox" data-i="'+origIndex+'"><span>'+esc(a.text)+'</span></label><span class="muted">'+esc(a.owner)+' · '+(isUrgent?'<strong style="color:var(--crit)">'+esc(a.due)+'</strong>':esc(a.due||'No deadline'))+'</span></li>';
+  }).join('') : '<p class="empty">No active action items.</p>';
 }
+
 $('#db-activity').addEventListener('click',e=>{
   const b=e.target.closest('[data-act="open-ref"]');if(!b)return;
   ui.selRef=b.dataset.ref;renderTracker();renderDetail();switchTab('tracker',true);
@@ -1063,11 +1272,24 @@ $('#wk').addEventListener('submit',e=>{
   if(i>=0)S.weeks[i]=rec;else S.weeks.push(rec);
   renderDash();toast('Saved '+lc(label)+'.');
 });
+
+// 6B. Automatically Remove Completed Action Items & Record in Activity
 $('#ai-list').addEventListener('change',e=>{
   const cb=e.target.closest('input[type="checkbox"]');if(!cb)return;
-  S.actions[+cb.dataset.i].done=cb.checked;renderDash();
-  const again=$('#ai-list input[data-i="'+cb.dataset.i+'"]');if(again)again.focus();
+  const idx = +cb.dataset.i;
+  const item = S.actions[idx];
+  if(cb.checked && item) {
+    item.done = true;
+    const accountOwner = currentUser ? currentUser.name : 'Administrative Manager';
+    S.recentActivities.push({
+      at: Date.now(),
+      text: `Action Item Completed: "${item.text}" — Status: Mark as Done by ${accountOwner}`
+    });
+    toast(`Action item marked as done by ${accountOwner}.`);
+    renderDash();
+  }
 });
+
 $('#ai').addEventListener('submit',e=>{
   e.preventDefault();
   const text=$('#ai-text').value.trim();
@@ -1089,7 +1311,7 @@ function init(){
   $('#bk-service').innerHTML=opt(SERVICES);
   $('#dr-role').innerHTML=opt(Object.keys(ROLES),ui.role);
   $('#dr-type').innerHTML=opt(DOC_TYPES,'Customer_ServiceRequest');
-  $('#ai-owner').innerHTML=opt(OWNERS);
+  $('#ai-owner').innerHTML=opt(OWNERS, 'Administrative Manager');
   $('#bk-name').value='Daniel Reyes';$('#bk-email').value='daniel.reyes@example.com';
   setForm(FORM_DEFAULT);
   $('#dr-subject').value='';
@@ -1104,6 +1326,7 @@ $('#reset').addEventListener('click',()=>{
   $('#tr-q').value='';$('#bk-msg').innerHTML='';
   init();toast('Demo reset to the sample data.');
 });
+
 init();
 (function(){const h=(location.hash||'').slice(1);switchTab(TABS.includes(h)?h:'dashboard');})();
 })();
