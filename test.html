@@ -308,4 +308,1070 @@ dl.kv dd{overflow-wrap:anywhere}
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.8"/></symbol>
   <symbol id="i-form" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17.5" rx="2.2"/><path d="M9 3.5h6v3H9z"/><path d="M8.5 11.5h7M8.5 15.5h4.5"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-  <symbol id="i-tasks" viewBox="0 0 24 24"><path d="M9.5 6.5H20M9.5 12H20M9.5 17.5H20"/><path d="M3.8 6.5l1.4 1.4 2.4-2.6M3.8 12l1.4 1.4 2.4-2.6M3.8 17.5l1.4 1.4 2.4-
+  <symbol id="i-tasks" viewBox="0 0 24 24"><path d="M9.5 6.5H20M9.5 12H20M9.5 17.5H20"/><path d="M3.8 6.5l1.4 1.4 2.4-2.6M3.8 12l1.4 1.4 2.4-2.6M3.8 17.5l1.4 1.4 2.4-2.6"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h3.7l2 2.2h7.3A2.5 2.5 0 0 1 21 9.7v7.8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3.2 13.5 6 5.5h12l2.8 8"/><path d="M3.2 13.5v4.2A2.3 2.3 0 0 0 5.5 20h13a2.3 2.3 0 0 0 2.3-2.3v-4.2h-5l-1.2 2.2H9.4l-1.2-2.2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 10v4.5M12 17.6v.01"/></symbol>
+  <symbol id="i-escalate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16.5v-9M8.3 11.2 12 7.5l3.7 3.7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.9 2.9 5.3-6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9.5" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.8"/><path d="M20 20l-4.2-4.2"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M4.5 21V7.8L12 3.5l7.5 4.3V21"/><path d="M9.5 21v-5.5h5V21M9.5 10.5h.01M14.5 10.5h.01"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11.5A8 8 0 1 0 17.7 17"/><path d="M20 5v6.5h-6.5"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-7.5 4 15 3-7.5h4"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
+
+<!-- 1 & 2. Login Page Overlay -->
+<div class="login-overlay" id="login-overlay">
+  <form class="login-card" id="login-form" novalidate>
+    <div class="login-brand">
+      <span class="logo"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-building"/></svg></span>
+      <div>
+        <div class="login-title">Pangasinan-Luzon</div>
+        <div class="login-sub">Online Trading &amp; Services</div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="login-username">Username</label>
+      <input id="login-username" autocomplete="username" required placeholder="Enter username">
+    </div>
+    <div class="field">
+      <label for="login-password">Password</label>
+      <input id="login-password" type="password" autocomplete="current-password" required placeholder="Enter password">
+    </div>
+    <p class="err" id="login-err" aria-live="polite"></p>
+    <button class="btn btn-primary" type="submit">Log in</button>
+    <div style="text-align:center; margin-top: -2px;">
+      <button type="button" class="refbtn" id="login-create-account">Create Account / New Sign In</button>
+    </div>
+
+    <!-- Continue with Options Section -->
+    <div class="social-divider">
+      <span>Continue with</span>
+    </div>
+    
+    <div class="social-options">
+      <!-- Google -->
+      <button type="button" class="btn-social" data-provider="Google">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        <span>Continue with Google</span>
+      </button>
+      <!-- Facebook -->
+      <button type="button" class="btn-social" data-provider="Facebook">
+        <svg viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span>Continue with Facebook</span>
+      </button>
+      <!-- Apple -->
+      <button type="button" class="btn-social" data-provider="Apple">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.96.04-2.13.64-2.81 1.44-.61.71-1.14 1.87-.99 2.99 1.08.08 2.16-.51 2.81-1.33z"/></svg>
+        <span>Continue with Apple</span>
+      </button>
+      <!-- Microsoft -->
+      <button type="button" class="btn-social" data-provider="Microsoft">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M13 1h10v10H13z"/><path fill="#00A4EF" d="M1 13h10v10H1z"/><path fill="#FFB900" d="M13 13h10v10H13z"/></svg>
+        <span>Continue with Microsoft</span>
+      </button>
+      <!-- Work Email -->
+      <button type="button" class="btn-social" data-provider="Work Email">
+        <svg class="ico" style="width:20px;height:20px;color:var(--muted)" aria-hidden="true"><use href="#i-mail"/></svg>
+        <span>Continue with Work Email</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<aside class="sidebar">
+  <div class="brand">
+    <span class="logo"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-building"/></svg></span>
+    <div class="brand-text">
+      <span class="brand-name">Pangasinan-Luzon</span>
+      <span class="brand-sub">Online Trading &amp; Services</span>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Office tools">
+    <p class="nav-label">Office tools</p>
+    <ul>
+      <li><button class="nav-item" type="button" id="nav-dashboard" data-tab="dashboard" aria-current="page"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-grid"/></svg><span>Dashboard</span></button></li>
+      <li><button class="nav-item" type="button" id="nav-form" data-tab="form"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-form"/></svg><span>Customer form</span></button></li>
+      <li><button class="nav-item" type="button" id="nav-booking" data-tab="booking"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><span>Booking</span></button></li>
+      <li><button class="nav-item" type="button" id="nav-tracker" data-tab="tracker"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-tasks"/></svg><span>Tracker</span><span class="badge" id="badge-tracker" hidden>0</span></button></li>
+      <li><button class="nav-item" type="button" id="nav-drive" data-tab="drive"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg><span>Drive</span></button></li>
+    </ul>
+  </nav>
+  <div class="side-foot">
+    <div class="side-foot-info">
+      <span class="avatar" id="user-avatar" aria-hidden="true">AM</span>
+      <div class="side-foot-text"><strong id="user-display-name">Administrative Manager</strong><span>Group 4 · SME / E-Commerce</span></div>
+    </div>
+    <button type="button" class="btn-logout" id="logout-btn" title="Log out"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-logout"/></svg></button>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <div class="top-text">
+      <h1 class="page-title" id="page-title" tabindex="-1">Dashboard</h1>
+      <p class="page-sub" id="page-sub"></p>
+    </div>
+    <div class="top-actions">
+      <!-- 3. Live PHT Date & Time Display -->
+      <div class="datetime-display" id="live-datetime">-- --, ---- | --:-- --</div>
+      <span class="pill pill-info">Sample data</span>
+      <button class="btn btn-ghost btn-small" id="reset" type="button"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg><span id="reset-label">Reset demo</span></button>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- Dashboard -->
+    <section class="panel" id="panel-dashboard" aria-label="Dashboard">
+      <section class="greeting-card">
+        <h2 id="db-greeting">Hello, Administrative Manager</h2>
+        <p class="muted">Welcome back to your dashboard. Here is your operational overview for today.</p>
+      </section>
+
+      <div class="section-head">
+        <h2>Requests right now</h2>
+        <p class="muted">These counts change as you move requests through the tracker.</p>
+      </div>
+      <div class="stats" id="db-live"></div>
+
+      <div class="section-head">
+        <h2>Weekly measures</h2>
+        <p class="muted">Reviewed at the Friday evaluation. The first two weeks are sample numbers; record this week to see the change.</p>
+      </div>
+      <div class="stats stats-4" id="db-tiles"></div>
+
+      <div class="split-even">
+        <section class="card" aria-labelledby="st-title">
+          <div class="card-head">
+            <h2 id="st-title">Requests by status</h2>
+            <p class="muted">Bar length is the number of requests.</p>
+          </div>
+          <ul class="bars" id="db-status"></ul>
+        </section>
+        <section class="card" aria-labelledby="act-title">
+          <div class="card-head">
+            <h2 id="act-title">Recent activity</h2>
+            <p class="muted">The latest events across all requests.</p>
+          </div>
+          <ul class="activity" id="db-activity"></ul>
+        </section>
+      </div>
+
+      <div class="split-even">
+        <form class="card" id="wk" novalidate>
+          <div class="card-head">
+            <h2 id="wk-title">Record this week</h2>
+            <p class="muted">Saving again for the same week replaces its numbers.</p>
+          </div>
+          <div class="fields">
+            <div class="field"><label for="wk-accuracy">Order accuracy (%)</label><input id="wk-accuracy" inputmode="decimal"></div>
+            <div class="field"><label for="wk-response">Response time (hours)</label><input id="wk-response" inputmode="decimal"></div>
+            <div class="field"><label for="wk-resolution">Complaint resolution (days)</label><input id="wk-resolution" inputmode="decimal"></div>
+            <div class="field"><label for="wk-retrieval">Record retrieval (minutes)</label><input id="wk-retrieval" inputmode="decimal"></div>
+          </div>
+          <p class="err" id="wk-err" aria-live="polite"></p>
+          <div class="actions"><button class="btn btn-primary" type="submit">Save week</button></div>
+        </form>
+        <section class="card" aria-labelledby="wkt-title">
+          <div class="card-head"><h2 id="wkt-title">Weeks on record</h2></div>
+          <div class="table-wrap" id="db-weeks"></div>
+        </section>
+      </div>
+
+      <section class="card" aria-labelledby="ai-title">
+        <div class="card-head">
+          <h2 id="ai-title">Action items</h2>
+          <p class="muted">Sorted dynamically by urgency. Checking an item removes it from active tasks and records it under Recent Activity.</p>
+        </div>
+        <ul id="ai-list"></ul>
+        <hr class="divider">
+        <form id="ai" class="fields" novalidate>
+          <div class="field full"><label for="ai-text">New action item</label><input id="ai-text" autocomplete="off"><p class="err" id="ai-err" aria-live="polite"></p></div>
+          <div class="field"><label for="ai-owner">Owner</label><select id="ai-owner"></select></div>
+          <div class="field"><label for="ai-due">Deadline</label><input id="ai-due" placeholder="e.g. Urgent, Immediate, Friday"></div>
+          <div class="actions"><button class="btn btn-secondary" type="submit">Add action item</button></div>
+        </form>
+      </section>
+    </section>
+
+    <!-- Customer form -->
+    <section class="panel" id="panel-form" aria-label="Customer form" hidden>
+      <div class="split">
+        <form class="card" id="cf" novalidate>
+          <div class="card-head">
+            <h2>Customer information form</h2>
+            <p class="muted">Example values are filled in. Submit as they are, or try a form with a missing house number.</p>
+          </div>
+          <div class="fields">
+            <div class="field">
+              <label for="cf-name">Full name</label>
+              <input id="cf-name" autocomplete="name" aria-describedby="cf-name-err">
+              <p class="err" id="cf-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-mobile">Mobile number</label>
+              <input id="cf-mobile" inputmode="tel" autocomplete="tel" aria-describedby="cf-mobile-err">
+              <p class="err" id="cf-mobile-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" type="email" autocomplete="email" aria-describedby="cf-email-err">
+              <p class="err" id="cf-email-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="cf-contact">Preferred contact</label>
+              <select id="cf-contact"><option>Email</option><option>Mobile</option></select>
+            </div>
+            <div class="field">
+              <label for="cf-type">What do you need?</label>
+              <select id="cf-type"></select>
+            </div>
+            <div class="field">
+              <label for="cf-order">Order number (if any)</label>
+              <input id="cf-order" placeholder="#EC1045">
+            </div>
+            <div class="field full">
+              <label for="cf-address">Address</label>
+              <input id="cf-address" autocomplete="street-address" aria-describedby="cf-address-err">
+              <p class="err" id="cf-address-err" aria-live="polite"></p>
+            </div>
+            <div class="field full">
+              <label for="cf-details">Details</label>
+              <textarea id="cf-details" rows="2" placeholder="Tell us what happened"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-secondary" type="button" id="cf-bad">Try missing house number</button>
+            <button class="btn btn-ghost" type="button" id="cf-clear">Clear</button>
+          </div>
+        </form>
+        <div class="card" id="cf-status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="panel" id="panel-booking" aria-label="Appointment booking" hidden>
+      <div class="split">
+        <form class="card" id="bk" novalidate>
+          <div class="card-head">
+            <h2>Book an appointment</h2>
+            <p class="muted">Office hours are 8:00 AM to 5:00 PM, Monday to Friday. Client appointments run in two blocks: 9:00 to 10:30 AM and 1:00 to 2:30 PM.</p>
+          </div>
+          <div class="field">
+            <label for="bk-service">Service</label>
+            <select id="bk-service"></select>
+          </div>
+          <div class="field">
+            <span class="label" id="bk-day-label">Day</span>
+            <div class="days" id="bk-days" role="group" aria-labelledby="bk-day-label"></div>
+          </div>
+          <div class="field">
+            <span class="label" id="bk-slot-label">Time</span>
+            <div class="slots" id="bk-slots" role="group" aria-labelledby="bk-slot-label"></div>
+            <p class="hint" id="bk-picked" aria-live="polite"></p>
+            <div id="bk-msg" aria-live="polite"></div>
+          </div>
+          <div class="fields">
+            <div class="field">
+              <label for="bk-name">Name</label>
+              <input id="bk-name" autocomplete="name" aria-describedby="bk-name-err">
+              <p class="err" id="bk-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="bk-email">Email</label>
+              <input id="bk-email" type="email" autocomplete="email" aria-describedby="bk-email-err">
+              <p class="err" id="bk-email-err" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="actions"><button class="btn btn-primary" type="submit">Confirm booking</button></div>
+        </form>
+        <div class="card" id="bk-confirm" aria-live="polite"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h2>Shared office calendar</h2>
+          <p class="muted">Booked times are blocked on the form. If two clients want the same time, the first booking keeps it.</p>
+        </div>
+        <div class="cal" id="bk-cal"></div>
+      </div>
+    </section>
+
+    <!-- Tracker -->
+    <section class="panel" id="panel-tracker" aria-label="Request tracker" hidden>
+      <div class="split">
+        <div class="card">
+          <div class="card-head">
+            <h2>Request and order tracker</h2>
+            <p class="muted">Change a status and the owner updates. Delays draft a customer notice, and leaving "Awaiting validation" stores the customer record in the drive.</p>
+          </div>
+          <div class="toolbar">
+            <div class="search">
+              <input id="tr-q" aria-label="Search requests" type="search" placeholder="Search ref no. or customer" autocomplete="off">
+            </div>
+          </div>
+          <div class="chips" id="tr-chips" role="group" aria-label="Filter by status"></div>
+          <div class="table-wrap" id="tr-table"></div>
+        </div>
+        <div class="card" id="tr-detail" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Drive -->
+    <section class="panel" id="panel-drive" aria-label="Document drive" hidden>
+      <div class="drive">
+        <aside class="card">
+          <div class="field">
+            <label for="dr-role">Viewing as</label>
+            <select id="dr-role"></select>
+          </div>
+          <nav class="tree" id="dr-tree" aria-label="Folders"></nav>
+        </aside>
+        <div class="stack">
+          <div class="card">
+            <div class="card-head">
+              <h2>Company drive</h2>
+              <p class="crumb" id="dr-crumb"></p>
+              <p class="hint" id="dr-access"></p>
+            </div>
+            <div id="dr-main"></div>
+          </div>
+          <form class="card" id="dr-form" novalidate>
+            <div class="card-head">
+              <h2>Save a document</h2>
+              <p class="muted">Files are named year-month, document type, subject, then version. Older versions are kept.</p>
+            </div>
+            <div class="fields">
+              <div class="field"><label for="dr-type">Document type</label><select id="dr-type"></select></div>
+              <div class="field"><label for="dr-subject">Subject (optional)</label><input id="dr-subject" placeholder="Reyes" autocomplete="off"></div>
+              <div class="field"><label for="dr-version">Version</label><select id="dr-version"><option>v01</option><option>v02</option><option>v03</option><option>v04</option><option>FINAL</option></select></div>
+              <div class="field"><label for="dr-ext">File type</label><select id="dr-ext"><option>docx</option><option>pdf</option><option>xlsx</option></select></div>
+            </div>
+            <div class="field">
+              <span class="label">File name</span>
+              <p class="mono" id="dr-preview"></p>
+              <p class="hint" id="dr-hint"></p>
+              <p class="err" id="dr-err" aria-live="polite"></p>
+            </div>
+            <div class="actions"><button class="btn btn-primary" type="submit" id="dr-save">Save to this folder</button></div>
+          </form>
+          <div class="card">
+            <div class="card-head">
+              <h2>Backup Records</h2>
+              <p class="muted">Dedicated backup records organized by category (Sample Demo Data).</p>
+            </div>
+            <div class="backup-cats" id="dr-backups-container"></div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <h2>Three-tier backup</h2>
+              <p class="muted">Simulated: this page records the click, it does not copy any files.</p>
+            </div>
+            <div class="tiers" id="dr-tiers"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- constants ---------- */
+const TABS=['dashboard','form','booking','tracker','drive'];
+const META={
+ dashboard:['Dashboard','Live counts from the tracker and the weekly measures reviewed at the Friday evaluation.'],
+ form:['Customer form','The online form replaces the paper form, manual encoding, and paper filing.'],
+ booking:['Appointment booking','Clients book online, the shared calendar blocks taken times, and double booking cannot happen.'],
+ tracker:['Request tracker','One tracker for every department: each request has a reference number, an owner, and a status.'],
+ drive:['Document drive','Eight department folders, one naming rule, access by role, and a three-tier backup.']
+};
+const STATUSES=['Awaiting validation','Under review','Delayed','Refund requested','Escalated','Resolved'];
+const OWNER={'Awaiting validation':'Customer Service','Under review':'Operations','Delayed':'Customer Service','Refund requested':'Customer Service','Escalated':'Manager','Resolved':'Customer Service'};
+const REQ_TYPES=['Product inquiry','Service request','Late delivery','Wrong item','Refund request','Damaged item','Address update','Document request'];
+const SERVICES=['Client consultation','Business inquiry','Project discussion','Follow-up meeting','Client evaluation'];
+const SLOTS=['9:00 AM','9:30 AM','10:00 AM','1:00 PM','1:30 PM','2:00 PM'];
+const SEED_APPT={1:['9:00 AM','Client A','Client consultation'],2:['10:00 AM','Client B','Business inquiry'],3:['1:00 PM','Client C','Project discussion'],4:['9:30 AM','Client D','Follow-up meeting'],5:['2:00 PM','Client E','Client evaluation']};
+const FOLDERS=[
+ {id:'01',name:'Administration',subs:['Office Policies','Correspondence','Office Supplies','Equipment Records']},
+ {id:'02',name:'Finance',subs:['Invoices','Receipts','Expenses','Financial Reports']},
+ {id:'03',name:'Human Resources',subs:['Employee Records','Attendance','Leave Requests','Training Records']},
+ {id:'04',name:'Operations',subs:['Daily Operations','Work Assignments','Service Records','Procedures']},
+ {id:'05',name:'Customers',subs:['Customer Profiles','Service Requests','Complaints','Customer Correspondence']},
+ {id:'06',name:'Suppliers',subs:['Supplier Profiles','Quotations','Purchase Orders','Supplier Invoices']},
+ {id:'07',name:'Reports',subs:['Daily Reports','Weekly Reports','Monthly Reports','Annual Reports']},
+ {id:'08',name:'Meetings',subs:['Meeting Notices','Agendas','Attendance','Minutes','Action Items']}
+];
+const ROLES={
+ 'Customer Service':['05'],'Administration':['01','07','08'],'Finance':['02'],'Human Resources':['03'],
+ 'Operations':['04','06'],'IT Support':['01'],'Management':['01','02','03','04','05','06','07','08']
+};
+const DOC_TYPES=[['Staff_Meeting_Minutes','Staff meeting minutes'],['Staff_Meeting_Agenda','Staff meeting agenda'],['Customer_ServiceRequest','Customer service request'],['Customer_Complaint','Customer complaint'],['Supplier_Quotation','Supplier quotation'],['Monthly_Sales_Report','Monthly sales report'],['Office_Notice','Office notice']];
+const OWNERS=['Administrative Manager','Administrative Staff','Customer Service','Finance','HR','IT Support','Manager','Operations','Order/Inventory Staff','Secretary'];
+const METRICS=[
+ {key:'accuracy',label:'Order accuracy',unit:'%',def:'Orders shipped correctly',higher:true,icon:'check'},
+ {key:'response',label:'Response time',unit:'hrs',def:'Time to first reply',higher:false,icon:'clock'},
+ {key:'resolution',label:'Complaint resolution',unit:'days',def:'Complaint to resolution',higher:false,icon:'tasks'},
+ {key:'retrieval',label:'Record retrieval',unit:'min',def:'Time to find a file',higher:false,icon:'search'}
+];
+const DAYN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const BACKUP_DATA = {
+  Yearly: [
+    { name: 'Annual_Report_2026.pdf', date: '2026-01-10', type: 'PDF' },
+    { name: 'Annual_Report_2025.pdf', date: '2025-01-12', type: 'PDF' },
+    { name: 'Annual_Report_2024.pdf', date: '2024-01-15', type: 'PDF' },
+    { name: 'Annual_Report_2023.pdf', date: '2023-01-14', type: 'PDF' }
+  ],
+  Monthly: [
+    { name: 'September_2026_Backup.zip', date: '2026-09-30', type: 'ZIP Archive' },
+    { name: 'August_2026_Backup.zip', date: '2026-08-31', type: 'ZIP Archive' },
+    { name: 'July_2026_Backup.zip', date: '2026-07-31', type: 'ZIP Archive' },
+    { name: 'June_2026_Backup.zip', date: '2026-06-30', type: 'ZIP Archive' }
+  ],
+  Weekly: [
+    { name: 'Week_2_October_2026.zip', date: '2026-10-11', type: 'ZIP Archive' },
+    { name: 'Week_1_October_2026.zip', date: '2026-10-04', type: 'ZIP Archive' },
+    { name: 'Week_4_September_2026.zip', date: '2026-09-27', type: 'ZIP Archive' },
+    { name: 'Week_3_September_2026.zip', date: '2026-09-20', type: 'ZIP Archive' }
+  ],
+  Daily: [
+    { name: 'October_14_2026_Backup.zip', date: '2026-10-14', type: 'ZIP Archive' },
+    { name: 'October_13_2026_Backup.zip', date: '2026-10-13', type: 'ZIP Archive' },
+    { name: 'October_12_2026_Backup.zip', date: '2026-10-12', type: 'ZIP Archive' },
+    { name: 'October_11_2026_Backup.zip', date: '2026-10-11', type: 'ZIP Archive' }
+  ]
+};
+
+/* ---------- helpers ---------- */
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ico=n=>'<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-'+n+'"/></svg>';
+const pad=n=>String(n).padStart(2,'0');
+const slug=s=>s.toLowerCase().replace(/\s+/g,'-');
+const fmtDay=d=>DAYN[d.getDay()]+' '+MON[d.getMonth()]+' '+d.getDate();
+const fmtDT=t=>{const d=new Date(t);let h=d.getHours();const ap=h>=12?'PM':'AM';h=h%12||12;return MON[d.getMonth()]+' '+d.getDate()+', '+h+':'+pad(d.getMinutes())+' '+ap;};
+const dkey=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const ymNow=()=>{const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1);};
+const businessDays=n=>{const out=[];const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+1);while(out.length<n){const g=d.getDay();if(g!==0&&g!==6)out.push(new Date(d));d.setDate(d.getDate()+1);}return out;};
+const mondayOf=off=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)+off*7);return d;};
+const weekLabel=d=>'Week of '+MON[d.getMonth()]+' '+d.getDate();
+const lc=s=>s.charAt(0).toLowerCase()+s.slice(1);
+let toastTimer=null;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.hidden=true;},3400);}
+async function copyText(text,el){
+  try{await navigator.clipboard.writeText(text);toast('Copied to the clipboard.');}
+  catch(e){if(el){const r=document.createRange();r.selectNodeContents(el);const s=window.getSelection();s.removeAllRanges();s.addRange(r);}toast('Select the text and copy it.');}
+}
+
+/* ---------- 3. Real-time PHT Date & Time Clock ---------- */
+function updateClock(){
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const pht = new Date(utc + (3600000 * 8)); // UTC+8
+  
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const m = monthNames[pht.getMonth()];
+  const d = pht.getDate();
+  const y = pht.getFullYear();
+  
+  let h = pht.getHours();
+  const ap = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  const min = pad(pht.getMinutes());
+  
+  const formatted = `${m} ${d}, ${y} | ${h}:${min} ${ap}`;
+  const el = $('#live-datetime');
+  if(el) el.textContent = formatted;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+/* ---------- authentication & state ---------- */
+let currentUser = null;
+
+function handleLogin(username, password) {
+  if (username === 'admin' && password === 'admin') {
+    currentUser = { username: 'admin', name: 'Administrative Manager', initials: 'AM' };
+    $('#login-overlay').hidden = true;
+    $('#login-err').textContent = '';
+    $('#login-form').reset();
+    updateUserDisplay();
+    renderDash();
+    toast('Logged in successfully as Administrative Manager.');
+    return true;
+  } else {
+    $('#login-err').textContent = 'Invalid username or password. (Use demo: admin / admin)';
+    return false;
+  }
+}
+
+function updateUserDisplay() {
+  if (currentUser) {
+    $('#user-display-name').textContent = currentUser.name;
+    $('#user-avatar').textContent = currentUser.initials;
+    $('#db-greeting').textContent = 'Hello, ' + currentUser.name;
+  }
+}
+
+$('#login-form').addEventListener('submit', e => {
+  e.preventDefault();
+  handleLogin($('#login-username').value.trim(), $('#login-password').value);
+});
+
+$('#login-create-account').addEventListener('click', () => {
+  toast('Demo mode: Please log in using the demo credentials (admin / admin).');
+});
+
+// Handlers for "Continue with" social login options
+$$('.btn-social').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const provider = btn.dataset.provider || 'Selected provider';
+    toast(`${provider} sign-in is an interface element. Please use the demo credentials above.`);
+  });
+});
+
+$('#logout-btn').addEventListener('click', () => {
+  currentUser = null;
+  $('#login-overlay').hidden = false;
+  toast('Logged out.');
+});
+
+/* ---------- data ---------- */
+const days=businessDays(5);
+function seed(){
+  const t=Date.now(),H=3600e3,D=24*H;
+  const mk=(ref,customer,type,status,ago,extra)=>Object.assign({ref,customer,type,status,opened:t-ago*D,firstReply:t-ago*D+4*H,resolvedAt:status==='Resolved'?t-(ago-1)*D:null,fromForm:false,mobile:'',email:'',address:'',details:'',recordFile:null,
+    history:[{at:t-ago*D,text:'Request received.'},{at:t-ago*D+4*H,text:'Status set to '+status+'. Owner: '+OWNER[status]+'.'}]},extra||{});
+  const appts=days.map((d,i)=>{const s=SEED_APPT[d.getDay()];return {id:'seed'+i,date:dkey(d),slot:s[0],name:s[1],service:s[2],email:''};});
+  const w0=mondayOf(-2),w1=mondayOf(-1);
+  const f=(folder,sub,name)=>({folder,sub,name,saved:t-20*D});
+  return {
+    seq:105,
+    requests:[
+      mk('PL-2026-104','Mr. Santos','Service request','Under review',3,{details:'Submitted three days ago and no update yet.'}),
+      mk('#EC1045','Reyes','Late delivery','Delayed',4,{details:'Shoes ordered; delayed at the courier sorting facility.'}),
+      mk('#EC2058','Cruz','Wrong item','Refund requested',2,{details:'Medium shirt ordered, small shipped.'}),
+      mk('#EC3091','Online customer','Address update','Resolved',5,{details:'House number added before shipping.'}),
+      mk('#EC4120','Online customer','Damaged item','Escalated',1,{details:'Gadget arrived damaged; the customer asked for the manager.'})
+    ],
+    appts,
+    files:[
+      f('01','Correspondence','2026-09_Office_Notice_Maintenance_v01.docx'),
+      f('05','Service Requests','2026-09_Customer_ServiceRequest_Reyes_v01.pdf'),
+      f('05','Service Requests','2026-09_Customer_ServiceRequest_Santos_v01.pdf'),
+      f('05','Service Requests','2026-09_Customer_ServiceRequest_Cruz_v02.pdf'),
+      f('05','Complaints','2026-09_Customer_Complaint_Reyes_v02.pdf'),
+      f('06','Quotations','2026-09_Supplier_Quotation_ABCTrading_v01.pdf'),
+      f('07','Monthly Reports','2026-09_Monthly_Sales_Report_v01.xlsx'),
+      f('08','Agendas','2026-09_Staff_Meeting_Agenda_v01.docx'),
+      f('08','Minutes','2026-09_Client_Meeting_Minutes_v01.docx'),
+      f('08','Minutes','2026-09_Staff_Meeting_Minutes_v01.docx'),
+      f('08','Minutes','2026-09_Staff_Meeting_Minutes_v02.docx'),
+      f('08','Minutes','2026-09_Staff_Meeting_Minutes_FINAL.pdf')
+    ],
+    backups:{t1:null,t2:null,t3:null},
+    weeks:[
+      {label:weekLabel(w0),accuracy:91,response:6,resolution:3.5,retrieval:6,sample:true},
+      {label:weekLabel(w1),accuracy:93,response:4.5,resolution:3,retrieval:4,sample:true}
+    ],
+    actions:[
+      {text:'Provide updates for delayed orders',owner:'Customer Service',due:'Immediate',done:false},
+      {text:'Record customer complaints and resolutions',owner:'Administrative Staff',due:'Urgent',done:false},
+      {text:'Implement two-step order verification',owner:'Order/Inventory Staff',due:'Within 3 days',done:false},
+      {text:'Review the new procedures',owner:'Administrative Manager',due:'After 1 week',done:false}
+    ],
+    recentActivities:[]
+  };
+}
+let S=seed();
+const ui={tab:'dashboard',lastRef:null,selRef:'PL-2026-104',filter:'all',q:'',dayIdx:0,slot:null,lastAppt:null,role:'Customer Service',folder:'05',sub:'Service Requests'};
+const byRef=ref=>S.requests.find(r=>r.ref===ref);
+
+/* ---------- navigation ---------- */
+function switchTab(id,moveFocus){
+  if(!TABS.includes(id))return;
+  ui.tab=id;
+  TABS.forEach(t=>{
+    const on=t===id;const b=$('#nav-'+t);
+    if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+    $('#panel-'+t).hidden=!on;
+  });
+  $('#page-title').textContent=META[id][0];
+  $('#page-sub').textContent=META[id][1];
+  window.scrollTo(0,0);
+  if(moveFocus)$('#page-title').focus();
+  try{history.replaceState(null,'','#'+id);}catch(e){}
+}
+$('.nav').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b)switchTab(b.dataset.tab);});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(g)switchTab(g.dataset.goto,true);});
+
+/* ---------- 1. customer form ---------- */
+const FORM_DEFAULT={name:'Juan Dela Cruz',mobile:'0917 123 4567',email:'juan.delacruz@example.com',contact:'Email',type:'Late delivery',order:'#EC1045',address:'25 Mabini Street, Barangay San Antonio',details:'My order was due three days ago and has not arrived.'};
+function setForm(v){
+  $('#cf-name').value=v.name;$('#cf-mobile').value=v.mobile;$('#cf-email').value=v.email;$('#cf-contact').value=v.contact;
+  $('#cf-type').value=v.type;$('#cf-order').value=v.order;$('#cf-address').value=v.address;$('#cf-details').value=v.details;
+  clearErrors();
+}
+function clearErrors(){['name','mobile','email','address'].forEach(k=>{$('#cf-'+k+'-err').textContent='';$('#cf-'+k).removeAttribute('aria-invalid');});}
+function nextVersion(base){
+  let max=0;const re=new RegExp('^'+base.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'_v(\\d+)\\.');
+  S.files.forEach(f=>{const m=f.name.match(re);if(m)max=Math.max(max,parseInt(m[1],10));});
+  return 'v'+pad(max+1);
+}
+function storeRecord(r){
+  const surname=(r.customer.trim().split(/\s+/).pop()||'').replace(/[^A-Za-z0-9]/g,'')||'Customer';
+  const base=ymNow()+'_Customer_ServiceRequest_'+surname;
+  const name=base+'_'+nextVersion(base)+'.pdf';
+  S.files.push({folder:'05',sub:'Service Requests',name,saved:Date.now()});
+  return name;
+}
+function noticeFor(r){
+  return 'Subject: We received your request '+r.ref+'\n\nGood day, '+r.customer+'. Your '+r.type.toLowerCase()+' is recorded under reference '+r.ref+'. Our team has reviewed your details and will update you within two business days.\n\nThank you for your patience.';
+}
+function delayNoticeFor(r){
+  return 'Subject: Update on your request '+r.ref+'\n\nGood day, '+r.customer+'. Your request '+r.ref+' is delayed and we apologize for the inconvenience. We are following it up and will send you an update within two business days. If anything changes sooner, we will contact you right away.';
+}
+$('#cf').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v={name:$('#cf-name').value.trim(),mobile:$('#cf-mobile').value,email:$('#cf-email').value.trim(),type:$('#cf-type').value,order:$('#cf-order').value.trim(),address:$('#cf-address').value.trim(),details:$('#cf-details').value.trim(),contact:$('#cf-contact').value};
+  const errs={};
+  if(v.name.length<2)errs.name='Enter your full name.';
+  if(!/^(09\d{9}|\+639\d{9})$/.test(v.mobile.replace(/[\s-]/g,'')))errs.mobile='Enter an 11-digit mobile number that starts with 09.';
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email))errs.email='Enter an email address like name@email.com.';
+  if(!(/\d/.test(v.address)&&v.address.split(/\s+/).length>=3))errs.address='Include your house number, street, and barangay so the order reaches the right door.';
+  clearErrors();
+  const keys=Object.keys(errs);
+  if(keys.length){
+    keys.forEach(k=>{$('#cf-'+k+'-err').textContent=errs[k];$('#cf-'+k).setAttribute('aria-invalid','true');});
+    $('#cf-'+keys[0]).focus();toast('Check the highlighted fields.');return;
+  }
+  const t=Date.now();
+  const ref='PL-'+new Date().getFullYear()+'-'+(S.seq++);
+  S.requests.push({ref,customer:v.name,type:v.type,status:'Awaiting validation',opened:t,firstReply:null,resolvedAt:null,fromForm:true,mobile:v.mobile.trim(),email:v.email,address:v.address,details:(v.order?'Order '+v.order+'. ':'')+v.details,recordFile:null,
+    history:[{at:t,text:'Form submitted by the customer. Status: Awaiting validation. Owner: Customer Service.'}]});
+  ui.lastRef=ref;ui.selRef=ref;
+  renderAll();
+  toast(ref+' recorded. Staff validation is next.');
+});
+$('#cf-bad').addEventListener('click',()=>{setForm(FORM_DEFAULT);$('#cf-address').value='Mabini Street, Barangay San Antonio';$('#cf-address').focus();toast('House number removed. Submit to see the check.');});
+$('#cf-clear').addEventListener('click',()=>{['name','mobile','email','order','address','details'].forEach(k=>{$('#cf-'+k).value='';});clearErrors();$('#cf-name').focus();});
+
+function step(state,n,title,body){return '<li class="step '+state+'"><span class="dot">'+(state==='done'?'✓':n)+'</span><div class="step-body"><strong>'+title+'</strong>'+body+'</div></li>';}
+
+function renderFormStatus(){
+  const el=$('#cf-status');const r=ui.lastRef&&byRef(ui.lastRef);
+  if(!r){
+    el.innerHTML='<div class="card-head"><h2>Form Update</h2><p class="muted">This section helps customers easily find updates regarding submitted forms.</p></div><ol class="steps">'+
+      step('todo',1,'Customer submits the form','<p>Answers go straight into the tracker.</p>')+
+      step('todo',2,'Staff validate the details','<p>Customer Service checks the information.</p>')+
+      step('todo',3,'A digital record is stored','<p>Saved in the Customers folder of the drive.</p>')+
+      step('todo',4,'Customer receives a notice','<p>An automatic message confirms the reference number.</p>')+'</ol>';
+    return;
+  }
+  const ok=r.status!=='Awaiting validation';
+  const noticeSent = r.noticeSent || false;
+  
+  el.innerHTML='<div class="card-head"><h2>Form Update — '+esc(r.ref)+'</h2><p class="muted">'+esc(r.customer)+' · '+esc(r.type)+'</p></div><ol class="steps">'+
+    step('done',1,'Form submitted','<p>Recorded in the tracker as '+esc(r.ref)+'.</p>')+
+    (ok?step('done',2,'Staff validated the details','<p>Status is now '+esc(r.status)+'. Owner: '+esc(OWNER[r.status])+'.</p>')
+       :step('now',2,'Waiting for staff validation','<p>Someone in Customer Service needs to check the details.</p><div class="actions"><button class="btn btn-primary btn-small" type="button" data-act="validate" data-ref="'+esc(r.ref)+'">Validate as staff</button><button class="btn btn-ghost btn-small" type="button" data-act="open-tracker" data-ref="'+esc(r.ref)+'">Open in tracker</button></div>'))+
+    (ok?step('done',3,'Record stored','<p class="mono">'+esc(r.recordFile||'')+'</p><p>Saved in 05 Customers / Service Requests.</p><div class="actions"><button class="btn btn-ghost btn-small" type="button" data-act="open-drive">Open the drive</button></div>')
+       :step('todo',3,'Record stored','<p>Saved to the drive once staff validate.</p>'))+
+    (ok?step('done',4,'Customer Notice Ready','<div class="notice" id="cf-notice">'+esc(noticeFor(r))+'</div><p>Notice generated for customer dispatch.</p><div class="actions"><button class="btn '+(noticeSent?'btn-secondary':'btn-primary')+' btn-small" type="button" data-act="send-notice" data-ref="'+esc(r.ref)+'" '+(noticeSent?'disabled':'')+'>'+(noticeSent?'Done':'Send')+'</button></div>')
+       :step('todo',4,'Customer notice','<p>Prepared after validation.</p>'))+'</ol>';
+}
+$('#cf-status').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  if(b.dataset.act==='validate')setStatus(b.dataset.ref,'Under review');
+  if(b.dataset.act==='open-tracker'){ui.selRef=b.dataset.ref;renderTracker();renderDetail();switchTab('tracker',true);}
+  if(b.dataset.act==='open-drive'){ui.role='Customer Service';ui.folder='05';ui.sub='Service Requests';$('#dr-role').value=ui.role;renderDrive();switchTab('drive',true);}
+  if(b.dataset.act==='send-notice'){
+    const r = byRef(b.dataset.ref);
+    if(r) {
+      r.noticeSent = true;
+      toast('Customer notice sent successfully.');
+      renderFormStatus();
+    }
+  }
+});
+
+/* ---------- 2. booking ---------- */
+const apptAt=(key,slot)=>S.appts.find(a=>a.date===key&&a.slot===slot);
+function renderDays(){
+  $('#bk-days').innerHTML=days.map((d,i)=>'<button type="button" class="day" data-act="day" data-i="'+i+'" aria-pressed="'+(i===ui.dayIdx)+'"><span>'+DAYN[d.getDay()]+'</span><strong>'+MON[d.getMonth()]+' '+d.getDate()+'</strong></button>').join('');
+}
+function renderSlots(){
+  const key=dkey(days[ui.dayIdx]);
+  $('#bk-slots').innerHTML=SLOTS.map(s=>{
+    const taken=!!apptAt(key,s);
+    return '<button type="button" class="slot" data-act="slot" data-slot="'+s+'" '+(taken?'aria-disabled="true"':'aria-pressed="'+(ui.slot===s)+'"')+'><span>'+s+'</span>'+(taken?'<small>Taken</small>':'')+'</button>';
+  }).join('');
+  $('#bk-picked').textContent=ui.slot?'Selected: '+fmtDay(days[ui.dayIdx])+' at '+ui.slot+'.':'Choose an open time.';
+}
+function renderCal(){
+  $('#bk-cal').innerHTML=days.map(d=>{
+    const key=dkey(d);
+    const list=S.appts.filter(a=>a.date===key).sort((a,b)=>SLOTS.indexOf(a.slot)-SLOTS.indexOf(b.slot));
+    return '<div class="cal-col"><h3>'+fmtDay(d)+'</h3><ul>'+(list.length?list.map(a=>'<li class="appt'+(a.id===ui.lastAppt?' new':'')+'"><strong>'+a.slot+'</strong><span>'+esc(a.name)+'</span><small>'+esc(a.service)+'</small>'+(a.id===ui.lastAppt?'<span class="pill pill-ok">New booking</span>':'')+'</li>').join(''):'<li class="empty-slot">No appointments</li>')+'</ul></div>';
+  }).join('');
+}
+function renderBookConfirm(){
+  const el=$('#bk-confirm');const a=S.appts.find(x=>x.id===ui.lastAppt);
+  if(!a){el.innerHTML='<div class="card-head"><h2>What the client receives</h2><p class="muted">Book a time and the confirmation preview appears here. The booking also lands in the shared calendar below.</p></div>';return;}
+  const d=days.find(x=>dkey(x)===a.date);
+  const msg='Subject: Appointment confirmed, '+fmtDay(d)+' at '+a.slot+'\n\nGood day, '+a.name+'. Your '+a.service.toLowerCase()+' is booked for '+fmtDay(d)+' at '+a.slot+'. Please arrive 10 minutes early. A reminder will be sent at 8:30 AM on the day.';
+  el.innerHTML='<div class="card-head"><h2>Booking recorded</h2><p class="muted">Added to the shared calendar. Preview only: this prototype does not send email.</p></div><div class="notice">'+esc(msg)+'</div>';
+}
+$('#bk').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  if(b.dataset.act==='day'){ui.dayIdx=+b.dataset.i;ui.slot=null;$('#bk-msg').innerHTML='';renderDays();renderSlots();}
+  if(b.dataset.act==='slot'){
+    const s=b.dataset.slot;const key=dkey(days[ui.dayIdx]);
+    if(apptAt(key,s)){
+      const free=SLOTS.filter(x=>!apptAt(key,x));
+      $('#bk-msg').innerHTML='<p class="err">'+s+' is already booked. The first booking keeps the time.</p>'+(free.length?'<div class="actions"><button type="button" class="btn btn-secondary btn-small" data-act="use-slot" data-slot="'+free[0]+'">Use '+free[0]+' instead</button></div>':'<p class="hint">No open times are left on this day. Pick another day.</p>');
+      return;
+    }
+    ui.slot=s;$('#bk-msg').innerHTML='';renderSlots();
+  }
+  if(b.dataset.act==='use-slot'){ui.slot=b.dataset.slot;$('#bk-msg').innerHTML='';renderSlots();}
+});
+$('#bk').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('#bk-name').value.trim(),email=$('#bk-email').value.trim();
+  let bad=null;
+  $('#bk-name-err').textContent='';$('#bk-email-err').textContent='';$('#bk-name').removeAttribute('aria-invalid');$('#bk-email').removeAttribute('aria-invalid');
+  if(!ui.slot){toast('Choose an open time first.');const f=$('#bk-slots').querySelector('.slot:not([aria-disabled])');if(f)f.focus();return;}
+  if(name.length<2){$('#bk-name-err').textContent='Enter your name.';$('#bk-name').setAttribute('aria-invalid','true');bad=bad||$('#bk-name');}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('#bk-email-err').textContent='Enter an email address like name@email.com.';$('#bk-email').setAttribute('aria-invalid','true');bad=bad||$('#bk-email');}
+  if(bad){bad.focus();return;}
+  const key=dkey(days[ui.dayIdx]);
+  if(apptAt(key,ui.slot)){toast('That time was just taken.');ui.slot=null;renderSlots();return;}
+  const a={id:'a'+Date.now(),date:key,slot:ui.slot,service:$('#bk-service').value,name,email};
+  S.appts.push(a);ui.lastAppt=a.id;ui.slot=null;
+  renderSlots();renderCal();renderBookConfirm();
+  toast('Booked '+fmtDay(days[ui.dayIdx])+' at '+a.slot+'.');
+});
+
+/* ---------- 3. tracker ---------- */
+function setStatus(ref,status){
+  const r=byRef(ref);if(!r||r.status===status)return;
+  const was=r.status,t=Date.now();
+  r.status=status;
+  if(was==='Awaiting validation'&&!r.firstReply)r.firstReply=t;
+  r.resolvedAt=status==='Resolved'?t:null;
+  r.history.push({at:t,text:'Status changed from '+was+' to '+status+'. Owner: '+OWNER[status]+'.'});
+  if(was==='Awaiting validation'&&r.fromForm&&!r.recordFile){r.recordFile=storeRecord(r);r.history.push({at:t,text:'Customer record stored as '+r.recordFile+'.'});}
+  if(status==='Delayed')r.history.push({at:t,text:'Delay notice drafted for the customer.'});
+  renderAll();
+  toast(r.ref+' is now '+status+'.');
+}
+function filtered(){
+  const q=ui.q.trim().toLowerCase();
+  return S.requests.filter(r=>{
+    if(ui.filter==='open'&&r.status==='Resolved')return false;
+    if(['Delayed','Escalated','Resolved'].includes(ui.filter)&&r.status!==ui.filter)return false;
+    if(q&&!(r.ref.toLowerCase().includes(q)||r.customer.toLowerCase().includes(q)))return false;
+    return true;
+  }).sort((a,b)=>b.opened-a.opened);
+}
+function renderChips(){
+  const c=k=>k==='all'?S.requests.length:k==='open'?S.requests.filter(r=>r.status!=='Resolved').length:S.requests.filter(r=>r.status===k).length;
+  $('#tr-chips').innerHTML=[['all','All'],['open','Open'],['Delayed','Delayed'],['Escalated','Escalated'],['Resolved','Resolved']].map(x=>'<button type="button" class="chip" data-filter="'+x[0]+'" aria-pressed="'+(ui.filter===x[0])+'">'+x[1]+' ('+c(x[0])+')</button>').join('');
+}
+function renderTable(){
+  const rows=filtered();
+  if(!rows.length){$('#tr-table').innerHTML='<p class="empty">No requests match. Clear the search or pick another filter.</p>';return;}
+  $('#tr-table').innerHTML='<table class="data"><thead><tr><th>Ref no.</th><th>Customer</th><th>Request</th><th>Status</th><th>Owner</th><th>Opened</th></tr></thead><tbody>'+
+   rows.map(r=>'<tr class="'+(r.ref===ui.selRef?'sel':'')+'"><td><button type="button" class="refbtn" data-act="select" data-ref="'+esc(r.ref)+'">'+esc(r.ref)+'</button></td><td>'+esc(r.customer)+'</td><td>'+esc(r.type)+'</td><td><select class="st st-'+slug(r.status)+'" data-ref="'+esc(r.ref)+'" aria-label="Status for '+esc(r.ref)+'">'+STATUSES.map(s=>'<option'+(s===r.status?' selected':'')+'>'+s+'</option>').join('')+'</select></td><td>'+esc(OWNER[r.status])+'</td><td>'+fmtDT(r.opened)+'</td></tr>').join('')+'</tbody></table>';
+}
+function renderDetail(){
+  const el=$('#tr-detail');const r=byRef(ui.selRef);
+  if(!r){el.innerHTML='<p class="empty">Select a request to see its history and notes.</p>';return;}
+  const contact=r.fromForm?'<dl class="kv"><dt>Mobile</dt><dd>'+esc(r.mobile)+'</dd><dt>Email</dt><dd>'+esc(r.email)+'</dd><dt>Address</dt><dd>'+esc(r.address)+'</dd><dt>Details</dt><dd>'+esc(r.details)+'</dd></dl>':
+    '<dl class="kv"><dt>Details</dt><dd>'+esc(r.details||'Sample record')+'</dd></dl>';
+  el.innerHTML='<div class="card-head"><h2>'+esc(r.ref)+'</h2><p class="muted">'+esc(r.customer)+' · '+esc(r.type)+' · Owner: '+esc(OWNER[r.status])+'</p></div>'+contact+
+   (r.status==='Delayed'?'<div class="field"><span class="label">Customer notice (draft)</span><div class="notice" id="tr-notice">'+esc(delayNoticeFor(r))+'</div><div class="actions"><button type="button" class="btn btn-secondary btn-small" data-act="copy-delay" data-ref="'+esc(r.ref)+'">Copy notice</button></div><p class="hint">Preview only. This prototype does not send messages.</p></div>':'')+
+   '<hr class="divider"><div class="field"><h3>History</h3><ol class="history">'+r.history.slice().reverse().map(h=>'<li><time>'+fmtDT(h.at)+'</time><span>'+esc(h.text)+'</span></li>').join('')+'</ol></div>'+
+   '<div class="field"><label for="tr-note">Add a note</label><textarea id="tr-note" rows="2" placeholder="What did you do or learn?"></textarea><div class="actions"><button type="button" class="btn btn-secondary btn-small" data-act="add-note" data-ref="'+esc(r.ref)+'">Save note</button></div></div>';
+}
+function renderTracker(){renderChips();renderTable();}
+$('#tr-q').addEventListener('input',e=>{ui.q=e.target.value;renderTable();});
+$('#tr-chips').addEventListener('click',e=>{
+  const b=e.target.closest('[data-filter]');if(!b)return;
+  ui.filter=b.dataset.filter;renderTracker();
+  const again=$('#tr-chips [data-filter="'+ui.filter+'"]');if(again)again.focus();
+});
+$('#tr-table').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act="select"]');if(!b)return;
+  ui.selRef=b.dataset.ref;renderTable();renderDetail();
+});
+$('#tr-table').addEventListener('change',e=>{
+  const s=e.target.closest('select.st');if(!s)return;
+  const ref=s.dataset.ref;ui.selRef=ref;setStatus(ref,s.value);
+  const again=$('#tr-table select[data-ref="'+ref.replace(/"/g,'')+'"]');if(again)again.focus();
+});
+$('#tr-detail').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const r=byRef(b.dataset.ref);if(!r)return;
+  if(b.dataset.act==='copy-delay')copyText(delayNoticeFor(r),$('#tr-notice'));
+  if(b.dataset.act==='add-note'){
+    const ta=$('#tr-note');const text=ta.value.trim();
+    if(!text){toast('Write a note first.');ta.focus();return;}
+    r.history.push({at:Date.now(),text:'Note: '+text});renderDetail();renderDash();toast('Note saved to '+r.ref+'.');
+  }
+});
+
+/* ---------- 4. drive & Backup Records ---------- */
+const can=id=>ROLES[ui.role].includes(id);
+function curFolder(){return FOLDERS.find(f=>f.id===ui.folder);}
+function previewName(){
+  const type=$('#dr-type').value;
+  const subj=$('#dr-subject').value.replace(/[^A-Za-z0-9]+/g,'');
+  const base=ymNow()+'_'+type+(subj?'_'+subj:'');
+  return {base,name:base+'_'+$('#dr-version').value+'.'+$('#dr-ext').value};
+}
+function renderPreview(){
+  const p=previewName();$('#dr-preview').textContent=p.name;
+  const exists=S.files.some(f=>f.name.startsWith(p.base+'_'));
+  $('#dr-hint').textContent=exists?'A file with this name already exists, so the next version is '+nextVersion(p.base)+'.':'Format: year-month, document type, subject, version.';
+}
+
+function renderBackupRecords() {
+  const container = $('#dr-backups-container');
+  if(!container) return;
+  
+  let html = '';
+  const categories = ['Yearly', 'Monthly', 'Weekly', 'Daily'];
+  
+  categories.forEach(cat => {
+    const records = BACKUP_DATA[cat] || [];
+    html += `<div class="backup-cat">
+      <div class="backup-cat-title">${cat} Backups</div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Backup Date</th>
+              <th>File Type</th>
+            </tr>
+          </thead>
+          <tbody>`;
+    records.forEach(rec => {
+      html += `<tr>
+        <td class="mono"><strong>${esc(rec.name)}</strong></td>
+        <td>${esc(rec.date)}</td>
+        <td><span class="pill pill-neutral">${esc(rec.type)}</span></td>
+      </tr>`;
+    });
+    html += `</tbody>
+        </table>
+      </div>
+    </div>`;
+  });
+  
+  container.innerHTML = html;
+}
+
+function renderDrive(){
+  const f=curFolder();const ok=can(f.id);
+  $('#dr-tree').innerHTML=FOLDERS.map(x=>{
+    const open=x.id===ui.folder;
+    return '<div><button type="button" class="tf-btn'+(open?' on':'')+'" data-act="folder" data-id="'+x.id+'" aria-expanded="'+open+'">'+(can(x.id)?'':ico('lock'))+'<span>'+x.id+' '+x.name+'</span></button>'+
+      (open&&can(x.id)?'<ul class="subs">'+x.subs.map(s=>'<li><button type="button" class="sub-btn'+(s===ui.sub?' on':'')+'" data-act="sub" data-sub="'+esc(s)+'">'+esc(s)+'</button></li>').join('')+'</ul>':'')+'</div>';
+  }).join('');
+  $('#dr-crumb').textContent=f.id+' '+f.name+(ok?' / '+ui.sub+' / '+new Date().getFullYear():'');
+  $('#dr-access').textContent='Viewing as '+ui.role+'. Can open: '+ROLES[ui.role].map(id=>FOLDERS.find(x=>x.id===id).name).join(', ')+'.';
+  const main=$('#dr-main');
+  if(!ok){
+    main.innerHTML='<div class="restricted">'+ico('lock')+'<div><strong>Restricted folder</strong><p>'+esc(ui.role)+' cannot open '+f.id+' '+esc(f.name)+'. Switch to Management to see it, or ask an authorized person to share a file.</p></div></div>';
+  }else{
+    const list=S.files.filter(x=>x.folder===f.id&&x.sub===ui.sub).sort((a,b)=>b.saved-a.saved);
+    main.innerHTML=list.length?'<ul class="files">'+list.map(x=>'<li class="file"><span class="mono">'+esc(x.name)+'</span>'+(/_FINAL\./.test(x.name)?'<span class="pill pill-ok">Approved final</span>':'<span class="pill pill-neutral">'+(x.name.match(/_(v\d+)\./)||['',''])[1]+'</span>')+'</li>').join('')+'</ul>':'<p class="empty">No files here yet. Save one below.</p>';
+  }
+  $('#dr-save').disabled=!ok;
+  $('#dr-tiers').innerHTML=[['t1','Company drive','Primary storage'],['t2','External storage','Backup 1'],['t3','Secure cloud','Backup 2']].map(t=>'<div class="tier"><strong>'+t[1]+'</strong><span class="muted">'+t[2]+'</span><span class="pill '+(S.backups[t[0]]?'pill-ok':'pill-neutral')+'">'+(S.backups[t[0]]?'Backed up '+fmtDT(S.backups[t[0]]):'Not run in this demo')+'</span><button type="button" class="btn btn-secondary btn-small" data-act="backup" data-tier="'+t[0]+'">Back up now</button></div>').join('');
+  
+  renderBackupRecords();
+  renderPreview();
+}
+$('#dr-tree').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  if(b.dataset.act==='folder'){ui.folder=b.dataset.id;ui.sub=curFolder().subs[0];}
+  if(b.dataset.act==='sub')ui.sub=b.dataset.sub;
+  renderDrive();
+  const again=$('#dr-tree .tf-btn.on');if(again&&b.dataset.act==='folder')again.focus();
+});
+$('#dr-role').addEventListener('change',e=>{ui.role=e.target.value;renderDrive();});
+$('#dr-tiers').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act="backup"]');if(!b)return;
+  S.backups[b.dataset.tier]=Date.now();renderDrive();toast('Backup recorded (simulated).');
+});
+['dr-type','dr-subject','dr-version','dr-ext'].forEach(id=>$('#'+id).addEventListener('input',()=>{
+  if(id==='dr-type'||id==='dr-subject'){const p=previewName();const v=nextVersion(p.base);if($('#dr-version').value!=='FINAL')$('#dr-version').value=['v01','v02','v03','v04'].includes(v)?v:'v04';}
+  $('#dr-err').textContent='';renderPreview();
+}));
+$('#dr-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!can(ui.folder)){$('#dr-err').textContent='Your role cannot save to this folder.';return;}
+  const p=previewName();
+  if(S.files.some(f=>f.name===p.name)){$('#dr-err').textContent=p.name+' already exists. Choose the next version so the earlier one is kept.';return;}
+  S.files.push({folder:ui.folder,sub:ui.sub,name:p.name,saved:Date.now()});
+  $('#dr-err').textContent='';renderDrive();toast('Saved '+p.name+'.');
+});
+
+/* ---------- 5. dashboard ---------- */
+function spark(vals){
+  if(vals.length<2)return '';
+  const w=120,h=40,p=7,min=Math.min(...vals),max=Math.max(...vals),span=max-min||1;
+  const pts=vals.map((v,i)=>[p+i*(w-2*p)/(vals.length-1),h-p-(v-min)/span*(h-2*p)]);
+  const f=a=>a[0].toFixed(1)+','+a[1].toFixed(1);
+  const n=pts.length,last=pts[n-1];
+  return '<svg class="spark" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="Trend over the last '+n+' weeks: '+vals.join(', ')+'"><polyline class="spark-line" points="'+pts.map(f).join(' ')+'"/><polyline class="spark-now" points="'+f(pts[n-2])+' '+f(last)+'"/><circle class="spark-ring" cx="'+last[0].toFixed(1)+'" cy="'+last[1].toFixed(1)+'" r="6"/><circle class="spark-dot" cx="'+last[0].toFixed(1)+'" cy="'+last[1].toFixed(1)+'" r="4"/></svg>';
+}
+function delta(m,cur,prev){
+  if(prev==null)return {t:'First reading',c:'pill-neutral'};
+  const d=+(cur-prev).toFixed(1);
+  if(d===0)return {t:'No change',c:'pill-neutral'};
+  const better=m.higher?d>0:d<0;
+  return {t:(d>0?'▲ ':'▼ ')+Math.abs(d)+' '+(m.unit==='%'?'pts':m.unit)+' '+(better?'better':'worse'),c:better?'pill-ok':'pill-warn'};
+}
+
+function getPriorityRank(dueStr) {
+  const d = (dueStr || '').toLowerCase();
+  if (d.includes('immediate')) return 1;
+  if (d.includes('urgent')) return 2;
+  return 3;
+}
+
+function renderDash(){
+  updateUserDisplay();
+
+  const c=s=>S.requests.filter(r=>r.status===s).length;
+  const open=S.requests.filter(r=>r.status!=='Resolved').length;
+  const live=[
+    ['Awaiting validation',c('Awaiting validation'),'New from the customer form','inbox',''],
+    ['Open requests',open,'Not yet resolved','clock',''],
+    ['Delayed',c('Delayed'),'Customer notice drafted','alert','warn'],
+    ['Escalated',c('Escalated'),'With the manager','escalate','crit'],
+    ['Resolved',c('Resolved'),'Closed out','check','ok']
+  ];
+  $('#db-live').innerHTML=live.map(x=>'<div class="stat"><div class="stat-top"><span class="stat-lbl">'+x[0]+'</span><span class="stat-ico '+x[4]+'">'+ico(x[3])+'</span></div><span class="stat-val">'+x[1]+'</span><span class="stat-def">'+x[2]+'</span>'+(x[0]==='Awaiting validation'&&x[1]>0?'<button type="button" class="refbtn" data-goto="tracker">Review in the tracker</button>':'')+'</div>').join('');
+
+  const last=S.weeks[S.weeks.length-1],prev=S.weeks[S.weeks.length-2];
+  $('#db-tiles').innerHTML=METRICS.map(m=>{
+    const d=delta(m,last[m.key],prev?prev[m.key]:null);
+    return '<div class="stat"><div class="stat-top"><span class="stat-lbl">'+m.label+'</span><span class="stat-ico">'+ico(m.icon)+'</span></div><span class="stat-val">'+last[m.key]+'<span class="stat-unit"> '+m.unit+'</span></span><span class="stat-def">'+m.def+'</span><div class="stat-foot"><span class="pill '+d.c+'">'+d.t+'</span>'+spark(S.weeks.map(w=>w[m.key]))+'</div></div>';
+  }).join('');
+
+  const max=Math.max(1,...STATUSES.map(c));
+  $('#db-status').innerHTML=STATUSES.map(s=>{const n=c(s);return '<li class="bar-row" title="'+esc(s)+': '+n+' of '+S.requests.length+' requests"><span class="bar-label">'+esc(s)+'</span><span class="bar-track"><span class="bar-fill" style="width:'+(n/max*100).toFixed(1)+'%"></span></span><span class="bar-val">'+n+'</span></li>';}).join('');
+
+  const acts=[];
+  S.requests.forEach(r=>r.history.forEach(h=>acts.push({ref:r.ref,at:h.at,text:h.text})));
+  if (S.recentActivities) {
+    S.recentActivities.forEach(ra => acts.push(ra));
+  }
+  acts.sort((a,b)=>b.at-a.at);
+  $('#db-activity').innerHTML=acts.slice(0,6).map(a=>'<li class="act"><span class="act-ico">'+ico('activity')+'</span><div class="act-body">'+(a.ref?'<button type="button" class="refbtn" data-act="open-ref" data-ref="'+esc(a.ref)+'">'+esc(a.ref)+'</button>':'')+'<span>'+esc(a.text)+'</span><time>'+fmtDT(a.at)+'</time></div></li>').join('');
+
+  $('#db-weeks').innerHTML='<table class="data" style="min-width:380px"><thead><tr><th>Week</th>'+METRICS.map(m=>'<th class="num-cell">'+m.unit+'</th>').join('')+'</tr></thead><tbody>'+S.weeks.slice().reverse().map(w=>'<tr><td>'+esc(w.label)+(w.sample?' <span class="pill pill-neutral">Sample</span>':'')+'</td>'+METRICS.map(m=>'<td class="num-cell">'+w[m.key]+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
+  $('#wk-title').textContent='Record '+lc(weekLabel(mondayOf(0)));
+
+  const activeActions = S.actions.filter(a => !a.done);
+  activeActions.sort((a,b) => getPriorityRank(a.due) - getPriorityRank(b.due));
+
+  $('#ai-list').innerHTML = activeActions.length ? activeActions.map(a => {
+    const origIndex = S.actions.indexOf(a);
+    const isUrgent = getPriorityRank(a.due) < 3;
+    return '<li class="ai"><label><input type="checkbox" data-i="'+origIndex+'"><span>'+esc(a.text)+'</span></label><span class="muted">'+esc(a.owner)+' · '+(isUrgent?'<strong style="color:var(--crit)">'+esc(a.due)+'</strong>':esc(a.due||'No deadline'))+'</span></li>';
+  }).join('') : '<p class="empty">No active action items.</p>';
+}
+
+$('#db-activity').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act="open-ref"]');if(!b)return;
+  ui.selRef=b.dataset.ref;renderTracker();renderDetail();switchTab('tracker',true);
+});
+$('#wk').addEventListener('submit',e=>{
+  e.preventDefault();
+  const vals={};let bad=null;
+  METRICS.forEach(m=>{const el=$('#wk-'+m.key);const n=parseFloat(el.value.replace(',','.'));if(!isFinite(n)||n<0||(m.key==='accuracy'&&n>100))bad=bad||el;else vals[m.key]=+n.toFixed(1);});
+  if(bad){$('#wk-err').textContent='Enter a number in every field. Order accuracy cannot be more than 100.';bad.focus();return;}
+  $('#wk-err').textContent='';
+  const label=weekLabel(mondayOf(0));
+  const rec=Object.assign({label,sample:false},vals);
+  const i=S.weeks.findIndex(w=>w.label===label);
+  if(i>=0)S.weeks[i]=rec;else S.weeks.push(rec);
+  renderDash();toast('Saved '+lc(label)+'.');
+});
+
+$('#ai-list').addEventListener('change',e=>{
+  const cb=e.target.closest('input[type="checkbox"]');if(!cb)return;
+  const idx = +cb.dataset.i;
+  const item = S.actions[idx];
+  if(cb.checked && item) {
+    item.done = true;
+    const accountOwner = currentUser ? currentUser.name : 'Administrative Manager';
+    S.recentActivities.push({
+      at: Date.now(),
+      text: `Action Item Completed: "${item.text}" — Status: Mark as Done by ${accountOwner}`
+    });
+    toast(`Action item marked as done by ${accountOwner}.`);
+    renderDash();
+  }
+});
+
+$('#ai').addEventListener('submit',e=>{
+  e.preventDefault();
+  const text=$('#ai-text').value.trim();
+  if(!text){$('#ai-err').textContent='Describe the action item.';$('#ai-text').focus();return;}
+  $('#ai-err').textContent='';
+  S.actions.push({text,owner:$('#ai-owner').value,due:$('#ai-due').value.trim(),done:false});
+  $('#ai-text').value='';$('#ai-due').value='';renderDash();toast('Action item added.');
+});
+
+/* ---------- shared ---------- */
+function renderBadge(){
+  const n=S.requests.filter(r=>r.status==='Awaiting validation').length;
+  const b=$('#badge-tracker');b.innerHTML=n+'<span class="vh"> awaiting validation</span>';b.hidden=n===0;
+}
+function renderAll(){renderBadge();renderFormStatus();renderTracker();renderDetail();renderDrive();renderDash();}
+const opt=(arr,sel)=>arr.map(x=>{const v=Array.isArray(x)?x[0]:x,l=Array.isArray(x)?x[1]:x;return '<option value="'+esc(v)+'"'+(v===sel?' selected':'')+'>'+esc(l)+'</option>';}).join('');
+function init(){
+  $('#cf-type').innerHTML=opt(REQ_TYPES);
+  $('#bk-service').innerHTML=opt(SERVICES);
+  $('#dr-role').innerHTML=opt(Object.keys(ROLES),ui.role);
+  $('#dr-type').innerHTML=opt(DOC_TYPES,'Customer_ServiceRequest');
+  $('#ai-owner').innerHTML=opt(OWNERS, 'Administrative Manager');
+  $('#bk-name').value='Daniel Reyes';$('#bk-email').value='daniel.reyes@example.com';
+  setForm(FORM_DEFAULT);
+  $('#dr-subject').value='';
+  renderDays();renderSlots();renderCal();renderBookConfirm();renderAll();
+}
+let resetArmed=false,resetTimer=null;
+$('#reset').addEventListener('click',()=>{
+  const l=$('#reset-label');
+  if(!resetArmed){resetArmed=true;l.textContent='Click again to reset';clearTimeout(resetTimer);resetTimer=setTimeout(()=>{resetArmed=false;l.textContent='Reset demo';},4000);return;}
+  clearTimeout(resetTimer);resetArmed=false;l.textContent='Reset demo';
+  S=seed();Object.assign(ui,{lastRef:null,selRef:'PL-2026-104',filter:'all',q:'',dayIdx:0,slot:null,lastAppt:null,role:'Customer Service',folder:'05',sub:'Service Requests'});
+  $('#tr-q').value='';$('#bk-msg').innerHTML='';
+  init();toast('Demo reset to the sample data.');
+});
+
+init();
+(function(){const h=(location.hash||'').slice(1);switchTab(TABS.includes(h)?h:'dashboard');})();
+})();
+</script>
+
+</body></html>
